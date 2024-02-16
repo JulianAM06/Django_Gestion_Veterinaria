@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="">
+
+    
+
+    <div class="relative min-h-screen flex flex-col sm:justify-center items-center bg-black">
+        <div class="relative sm:max-w-sm w-full">
+            <div class="card bg-teal-700 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+            <div class="card bg-orange-700 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+            <div class="relative w-full rounded-3xl  px-6 py-1 bg-black shadow-md">
+    
+                <form method="POST" action="#" class="mt-6">
+
+                    {% csrf_token %}
+
+                    <img src="{% static 'usuario3.png' %}" class="mx-auto mb-2">
+                                    
+                    <div class="mt-6">                
+                        <input type="text" name="nombre" maxlength="50" required="" id="id_nombre" placeholder="Nombre(s) Cliente" class="mt-1 text-white block w-full border-teal-700 bg-black h-10 rounded-xl shadow-lg border-2 p-2">                           
+                    </div>
+
+                    <div class="mt-6">                
+                        <input type="text" name="apellido" maxlength="50" required="" id="id_apellido" placeholder="Apellido(s)" class="mt-1 block w-full text-white bg-black h-10 rounded-xl shadow-lg border-2 p-2 border-teal-700">                           
+                    </div>
+
+                    <div class="mt-6">                
+                        <input type="text" name="cedula" maxlength="50" required="" id="id_cedula" placeholder="Cedula" class="mt-1 block w-full text-white bg-black h-10 rounded-xl shadow-lg border-2 p-2 border-teal-700">                           
+                    </div>
+
+                    <div class="mt-6">                
+                        <input type="email" name="email" maxlength="254" required="" id="id_email"  placeholder="Email" class="mt-1 block w-full  bg-black h-10 rounded-xl shadow-lg text-white border-teal-700 border-2 p-2">                           
+                    </div>
+
+                    <div class="mt-6">                
+                        <input type="text" name="telefono" maxlength="10" required="" id="id_telefono" placeholder="Contacto" class="mt-1 block w-full bg-black text-white h-10 rounded-xl shadow-lg border-2 p-2 border-teal-700">                           
+                    </div>
+
+                    <div class="mt-6">                
+                        <input type="text" name="ciudad" maxlength="50" required="" id="id_ciudad" placeholder="Ciudad" class="mt-1 block w-full bg-black text-white h-10 rounded-xl shadow-lg border-teal-700 border-2 p-2">                           
+                    </div>
+
+                    <div class="mt-6">
+                        <button type="submit" class="bg-teal-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">Registrar</button>
+                    </div>
+                </form>
+                    <div class="flex mt-4 justify-center w-full mb-4">
+                        <a href="mostrarCliente/"><button class="mr-5 bg-teal-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">Mostrar Clientes</button></a>
+        
+                        <a href="/"><button class="bg-orange-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">Regresar</button></a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

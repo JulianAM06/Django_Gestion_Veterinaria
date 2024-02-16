@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+    <div class="card mx-40 mt-4">
+      <img src="{% static 'adoptame5.png' %}" class="card-img border-none" alt="...">
+      <div class="card-img-overlay text-white">
+        <h5 class="card-title text-6xl font-semibold">Formulario Adopciones</h5>
+        <p class="card-text text-2xl font-semibold">Nuestro proceso de adopcion es sencillo,</p>
+        <p class="card-text text-xl font-semibold">Descarga el fomrulario, diligencialo y envialo </p>
+        <p class="card-text text-xl font-semibold">A traves de nuestro correo o whatsapp</p>
+        <p class="card-text text-xl font-semibold">Ayuda a esta mascota y cambiale la vida!!!</p>
+        <button class="bg-teal-800 text-white mt-4 rounded-md p-2 font-semibold"><a href="{% url 'descargar' %}">Descargar</a></button>
+      </div>
+    </div>
+
+{% endblock %}

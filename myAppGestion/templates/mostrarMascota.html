@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+{% block content %}
+
+        <div class="search container w-96 mt-8 mx-[610px] min-[320px]:w-96 max-[990px]:mx-0">
+            <form method="get">
+            <div class="custom-search-input">
+                <div class="input-group">
+                <input type="text" class="text-white form-control shadow-none bg-black border-teal-800 border-2 hover:border-white hover:shadow-none" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
+                <span class="input-group-list">
+                    <i class="icon icon-search"></i>
+                    <button type="submit" class="btn bg-teal-800 text-white text-md p-2 font-semibold" id="buscar">Buscar</button>
+                </span>
+                </div>
+            </div>
+            </form>
+        </div>
+
+    <div class="container p-10 flex flex-wrap-reverse">
+
+    {% if mascotas %}
+
+        {% for mascotas in mascotas %}
+
+        <div class="card ml-14 mb-10" style="width: 18rem;">
+            <img src="{{mascotas.foto.url}}" class="card-img-top">
+            <div class="card-body bg-black text-white rounded-md">
+              <h5 class="card-title text-2xl font-bold">{{mascotas.nombre}}</h5>
+              <p class="card-text"><strong>Raza:</strong> {{mascotas.raza}}</p>
+              <p class="card-text"><strong>Peso:</strong> {{mascotas.peso}} Kg</p>
+              <p class="card-text"><strong>Dueño:</strong> {{mascotas.fkCliente}}</p>
+              <p class="card-text"><strong>Codigo Mascota:</strong> {{mascotas.idMascota}}</p>
+              <a href="/registrarMascota/"><button type="button" class="btn bg-orange-700 text-white mt-2">Regresar</button></a>
+              <a href="http://127.0.0.1:5000/registrarTratamiento/mostrarTratamiento/?buscar={{mascotas.idMascota}}"><button type="button" class="btn bg-teal-700 text-white mt-2">Historial Tratamientos</button></a>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+        <div class="block mx-auto p-4">
+            <h4 class="text-white text-4xl mx-auto">No hay Mascotas Registradas</h4>
+            <a href="/registrarMascota/" class="ml-48"><button type="button" class="btn bg-orange-700 text-white mt-2 hover:bg-orange-500">Regresar</button></a>
+        </div>
+        
+
+    {% endif %}
+
+    </div>
+        
+{% endblock %}

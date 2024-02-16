@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+{% block content %}
+
+    <div class="search container w-96 mt-8 mx-[610px] min-[320px]:w-96 max-[990px]:mx-0">
+      <form method="get">
+      <div class="custom-search-input">
+          <div class="input-group">
+          <input type="text" class="text-white form-control shadow-none bg-black border-teal-800 border-2 hover:border-white hover:shadow-none" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
+          <span class="input-group-list">
+              <i class="icon icon-search"></i>
+              <button type="submit" class="btn bg-teal-800 text-white text-md p-2 font-semibold" id="buscar">Buscar</button>
+          </span>
+          </div>
+      </div>
+      </form>
+    </div>
+
+<div class="container p-10 flex flex-wrap-reverse">
+
+    {% if clientes %}
+
+        {% for clientes in clientes %}
+
+        <div class="card bg-teal-700 ml-10 mb-10" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title text-4xl text-white">{{clientes.nombre}}</h5>
+              <h6 class="card-subtitle mb-2 text-white text-2xl">{{clientes.apellido}}</h6>
+              <p class="card-text text-white"><strong class="text-black font-bold">Cedula:</strong> {{clientes.cedula}}</p>
+              <p class="card-text text-white"><strong class="text-black font-bold">Email:</strong> {{clientes.email}}</p>
+              <p class="card-text text-white"><strong class="text-black font-bold">Contacto:</strong> {{clientes.telefono}}</p>
+              <p class="card-text text-white"><strong class="text-black font-bold">Ciudad:</strong> {{clientes.ciudad}}</p>
+              <p class="card-text text-white"><strong class="text-black font-bold">Codigo Cliente:</strong> {{clientes.idCliente}}</p>
+              <a href="/registrarCliente/"><button class="btn bg-black text-white mt-2">Regresar</button></a>
+            </div>
+          </div>
+
+        {% endfor %}
+
+    {% else %}
+    
+    <div class="block p-4 mx-auto">
+        <h4 class="text-white text-4xl mx-auto">No hay Clientes Registradas</h4>
+        <a href="/registrarCliente/" class="ml-48"><button type="button" class="btn bg-orange-700 text-white mt-2 hover:bg-orange-500">Regresar</button></a>
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
+

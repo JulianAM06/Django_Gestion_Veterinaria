@@ -1,0 +1,69 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="flex flex-wrap min-h-screen w-full content-center justify-center bg-black py-10">
+  
+    <div class="flex shadow-md">
+    
+      <div class="flex flex-wrap content-center justify-center rounded-l-md bg-black border-4 border-teal-700" style="width: 24rem; height: 32rem;">
+        <div class="w-72">
+
+          <img src="{% static 'veterinario2.png' %}" class="mx-auto">
+
+          <form class="mt-4" method="POST">
+
+            {% csrf_token %}
+
+            <div class="mb-2">
+              <input type="text" name="nombre" maxlength="50" required="" id="id_nombre" placeholder="Nombre Tratamiento" class="bg-black text-white block w-full rounded-md border-2 border-teal-700 focus:border-white focus:outline-none focus:ring-1 focus:ring-white py-1 px-1.5" />
+            </div>
+
+            <div class="mb-2">
+                <input type="text" name="fecha" required="" id="id_fecha" placeholder="Fecha AAAA-MM-DD" class="bg-black text-white block w-full rounded-md border-2 border-teal-700 focus:border-white focus:outline-none focus:ring-1 focus:ring-white py-1 px-1.5" />
+            </div>
+
+            <div class="mb-2">
+              <input type="text" name="precio" required="" id="id_precio" placeholder="Precio" class="bg-black text-white block w-full rounded-md border-2 border-teal-700 focus:border-white focus:outline-none focus:ring-1 focus:ring-white py-1 px-1.5" />
+          </div>
+
+            <div class="mb-2">
+                <textarea name="descripcion" cols="40" rows="2" maxlength="500" required="" id="id_descripcion" placeholder="Ingresa descripcion Tratamiento" class="bg-black text-white block w-full rounded-md border-2 border-teal-700 focus:border-white focus:outline-none focus:ring-1 focus:ring-white py-1 px-1.5"></textarea>  
+            </div>
+
+            <div class="mb-2">
+              <p class="text-sm text-white ">Selecciona Mascota</p>
+              <p class="text-black text-sm border-2 border-teal-500 rounded w-[13.8rem] p-0.5">{{form.fkMascota}}</p>
+            </div>
+
+            <div class="mb-2">
+              <p class="text-sm text-white">Selecciona Veterinario</p>
+              <p class="text-black text-sm border-2 border-teal-500 rounded w-[14.5rem] p-0.5">{{form.fkVeterinario}}</p>
+            </div>
+
+            <div class="mb-2">
+              <button type="submit" class="mb-1.5 block w-full text-center text-white bg-teal-700 hover:bg-teal-500 px-2 py-1.5 rounded-md">Registar</button>
+            </div>
+          </form>
+          <div class="flex">
+            <a href="mostrarTratamiento/"><button type="submit" class="mb-1.5 block w-full text-center text-xs text-white bg-teal-700 hover:bg-teal-500 px-2 py-1.5 rounded-md ml-4">Mostar Tratamientos</button></a>
+            <a href="/"><button type="submit" class="mb-1.5 block w-full ml-6 text-center text-xs text-white bg-orange-700 hover:bg-orange-500 px-2 py-1.5 rounded-md">Regresar</button></a>
+          </div>
+          
+        </div>
+      </div>
+  
+      <div class="flex flex-wrap content-center justify-center rounded-r-md" style="width: 24rem; height: 32rem;">
+        <img class="w-full h-full bg-center bg-no-repeat bg-cover rounded-r-md border-4 border-teal-700" src="https://img.freepik.com/fotos-premium/retrato-joven-veterinario-dos-gatos-brazos-ia-generativa_634053-8265.jpg?w=360">
+      </div>
+  
+    </div>
+  </div>
+
+{% endblock %}
+
+
+

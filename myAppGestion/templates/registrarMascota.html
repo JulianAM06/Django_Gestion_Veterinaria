@@ -1,0 +1,76 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+<div class='grid grid-cols-12'>
+    <div class="col-span-4 text-white font-sans font-bold bg-black min-h-screen pl-24">
+        <div class="grid grid-rows-6 grid-flow-col min-h-screen items-center justify-items-start">
+            <div class="row-span-6 row-start-2 text-2xl">
+
+                <img src="{% static 'mascota2.png' %}" class="ml-32 mb-2">
+
+                <form action="" method="POST" enctype="multipart/form-data">  
+
+                    {% csrf_token %}     
+
+                <div class="pt-2 pr-20">
+                    <input type="text" name="nombre" maxlength="50" required="" id="id_nombre" placeholder="Nombre(s) Mascota" 
+                        class=" w-full bg-black py-2 px-6 border-2 border-teal-500 rounded-lg hover: shadow text-base font-sans"/>
+                </div>
+                <div class="pt-2 pr-20">
+                    <input type="number" name="edad" required="" id="id_edad" placeholder="Edad" 
+                        class=" w-full bg-black py-2 px-6 border-2 border-teal-500 rounded-lg hover: shadow text-base font-sans"/>
+                </div>
+                <div class="pt-2 pr-20">
+                    <input type="text" name="raza" maxlength="50" required="" id="id_raza" placeholder="Raza" 
+                        class=" w-full bg-black py-2 px-6 border-2 border-teal-500 rounded-lg hover: shadow text-base font-sans"/>
+                </div>
+                <div class="pt-2 pr-20">
+                    <input type="number" name="peso" step="any" required="" id="id_peso" placeholder="Peso" value="Kg"
+                        class=" w-full bg-black py-2 px-6 border-2 border-teal-500 rounded-lg hover: shadow text-base font-sans"/>
+                </div>
+                <div class="pt-2 pr-20">
+                    <input type="file" name="foto" accept="image/*" required="" id="id_foto" placeholder="Foto" 
+                        class=" w-full bg-black py-2 px-6 border-2 border-teal-500 rounded-lg hover: shadow text-xs font-sans"/>
+                </div>
+                <div class="pt-2 pr-20">
+                    <textarea name="descripcion" cols="40" rows="4" maxlength="500" required="" id="id_descripcion" placeholder="Ingresa descripción mascota" class="text-sm text-white bg-black border-2 border-teal-500 rounded-lg p-1"></textarea>
+                </div>
+                <div class="pt-2 pr-20">
+                    <p class="text-sm ">Selecciona Dueño</p>
+                    <p class="text-black text-sm bg-black border-2 border-teal-500 rounded w-[11.1rem] py-0.5">{{form.fkCliente}}</p>
+                </div>
+                <div class="text-sm font-sans font-medium w-full pr-16 pt-10 mb-2">
+                    <button type="submit" class="text-center w-full py-2 bg-teal-700 hover:bg-teal-500 rounded-md text-white font-bold">
+                            Registrar</button>
+                </div>
+            </form>
+            <div class="p-2">
+                <a href="mostrarMascota/" class="text-sm bg-teal-700 p-2 rounded-md hover:bg-teal-500 ml-14 "><button>Mostrar Mascotas</button></a>
+                <a href="/" class="text-sm bg-orange-700 p-2 rounded-md hover:bg-orange-500"><button>Regresar</button></a>
+            </div>
+            </div>
+        </div>         
+    </div>
+
+    <div class="banner col-span-8 text-white font-sans font-bold">
+        
+    </div>    
+</div>
+
+<style>
+.banner {
+    background: url( 'https://get.wallhere.com/photo/forest-children-dog-puppy-mammal-vertebrate-dog-like-mammal-dog-breed-group-dog-crossbreeds-66336.jpg' );
+    background-repeat: no-repeat; 
+    background-size: cover;     
+}
+</style>
+
+
+{% endblock %}
+

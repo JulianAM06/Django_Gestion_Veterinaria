@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style type="text/tailwindcss">
+        @layer utilities {
+          body {
+            background: black;
+          }
+        }
+      </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg bg-teal-900">
+        <div class="container-fluid">
+          <a class="navbar-brand text-2xl text-white" href="/">Veterinaria</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/registrarCliente/">Clientes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/registrarMascota/">Mascotas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/registrarTratamiento/">Tratamientos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/registrarAdopcion/">Adopciones</a>
+              </li>
+              <li class="nav-item border-2 border-white rounded-xl border-dotted mx-6">
+                <a class="nav-link text-white" aria-current="page" href="/mostrarAdopcion/">Adopciones Disponibles</a>
+              </li>
+              <li class="nav-item ml-[450px] flex">
+                {% if request.user.is_authenticated %}
+                <a class="nav-link text-white" aria-current="page" href="#">Bienvend@-{{user.username}}</a>
+                <a href="/logout/" class="py-2 text-orange-700">| Salir</a>
+                <a href="https://wa.me/573002926420" target="_blank"><img src="{% static 'whatsapp.png' %}" class="mt-1 ml-8"></a>
+                <a href="mailto:julianalzatemonsalve@gmail.com" target="_blank"><img src="{% static 'gmail.png' %}" class="mt-1 ml-2"></a>
+                {% else %}
+                <a href="/registrarCliente/"><img src="{% static 'acceso2.png' %}" class="mt-1 ml-40"></a>
+                <a href="https://wa.me/573002926420" target="_blank"><img src="{% static 'whatsapp.png' %}" class="mt-1 ml-10"></a>
+                <a href="mailto:julianalzatemonsalve@gmail.com" target="_blank"><img src="{% static 'gmail.png' %}" class="mt-1 ml-2"></a>
+                {% endif %}
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {% block content %}
+      {% endblock %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+</body>
+</html>
+
